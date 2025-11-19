@@ -32,9 +32,11 @@ const SearchSection = () => {
     <section id="search" className="py-20 px-4 bg-secondary/30">
       <div className="container mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Find What Fits You</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            Find Your <span className="text-primary">Perfect Match</span>
+          </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            We help you find a car that fits your personality, dream, and pocket!
+            Browse our extensive inventory with powerful search and filtering tools
           </p>
         </div>
 
