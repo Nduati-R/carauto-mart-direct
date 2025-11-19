@@ -7,9 +7,16 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="space-y-4">
-            <h3 className="font-bold text-lg">CAR AUTOMART LIMITED</h3>
+            <div className="flex items-center gap-2">
+              <div className="h-8 w-8 bg-primary rounded flex items-center justify-center">
+                <span className="text-primary-foreground font-bold text-lg">C</span>
+              </div>
+              <h3 className="font-bold text-lg">
+                CAR <span className="text-primary">AUTOMART</span>
+              </h3>
+            </div>
             <p className="text-sm text-muted-foreground">
-              Your trusted partner in finding quality pre-owned vehicles.
+              Your trusted partner in finding quality pre-owned vehicles at the best prices.
             </p>
           </div>
 

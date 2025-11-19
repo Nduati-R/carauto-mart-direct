@@ -10,10 +10,10 @@ const Hero = () => {
         {/* Main Heading */}
         <div className="space-y-4">
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight">
-            Your Premier <span className="font-bold">Used Car</span> Marketplace
+            Drive Your <span className="text-primary">Dream</span> Today
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
-            Discover quality pre-owned vehicles that fit your lifestyle, dream, and budget
+            Quality pre-owned vehicles at unbeatable prices. Your journey to the perfect car starts here.
           </p>
         </div>
 
