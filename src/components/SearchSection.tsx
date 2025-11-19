@@ -4,8 +4,10 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { useNavigate } from "react-router-dom";
 
 const SearchSection = () => {
+  const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState("");
 
   const budgetRanges = [
@@ -76,6 +78,7 @@ const SearchSection = () => {
                       key={brand}
                       variant="outline"
                       className="justify-start hover:bg-accent"
+                      onClick={() => navigate(`/vehicles?brand=${brand}`)}
                     >
                       {brand}
                     </Button>
@@ -91,6 +94,7 @@ const SearchSection = () => {
                       key={type}
                       variant="outline"
                       className="justify-start hover:bg-accent"
+                      onClick={() => navigate('/vehicles')}
                     >
                       {type}
                     </Button>
@@ -108,13 +112,16 @@ const SearchSection = () => {
                   key={range}
                   variant="secondary"
                   className="text-sm hover:bg-muted"
+                  onClick={() => navigate('/vehicles')}
                 >
                   {range}
                 </Button>
               ))}
             </div>
             <div className="mt-6 text-center">
-              <Button variant="link">Click here for Advanced Search →</Button>
+              <Button variant="link" onClick={() => navigate('/vehicles')}>
+                Click here for Advanced Search →
+              </Button>
             </div>
           </CardContent>
         </Card>
