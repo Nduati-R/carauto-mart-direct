@@ -25,7 +25,7 @@ const Navigation = () => {
                 <span className="text-primary-foreground font-bold text-lg">C</span>
               </div>
               <h1 className="text-xl font-bold tracking-tight">
-                CAR <span className="text-primary">AUTOMART</span>
+                CARNATION <span className="text-primary">AUTOMART</span>
               </h1>
             </div>
           </a>
@@ -39,20 +39,6 @@ const Navigation = () => {
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end" className="w-48">
                 {vehicleTypes.map((type) => (
-                  <DropdownMenuItem key={type}>
-                    <a href="#" className="w-full">{type}</a>
-                  </DropdownMenuItem>
-                ))}
-              </DropdownMenuContent>
-            </DropdownMenu>
-
-            <DropdownMenu>
-              <DropdownMenuTrigger className="flex items-center space-x-1 text-sm font-medium hover:text-primary transition-colors">
-                <span>Bikes</span>
-                <ChevronDown className="h-4 w-4" />
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="w-48">
-                {bikeTypes.map((type) => (
                   <DropdownMenuItem key={type}>
                     <a href="#" className="w-full">{type}</a>
                   </DropdownMenuItem>
@@ -86,9 +72,6 @@ const Navigation = () => {
           <div className="md:hidden py-4 space-y-3 border-t border-border">
             <a href="#vehicles" className="block py-2 text-sm font-medium hover:text-primary transition-colors">
               Vehicles
-            </a>
-            <a href="#bikes" className="block py-2 text-sm font-medium hover:text-primary transition-colors">
-              Bikes
             </a>
             <a href="#sell" className="block py-2 text-sm font-medium hover:text-primary transition-colors">
               Sell Your Car

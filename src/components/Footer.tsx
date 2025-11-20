@@ -12,7 +12,7 @@ const Footer = () => {
                 <span className="text-primary-foreground font-bold text-lg">C</span>
               </div>
               <h3 className="font-bold text-lg">
-                CAR <span className="text-primary">AUTOMART</span>
+                CARNATION <span className="text-primary">AUTOMART</span>
               </h3>
             </div>
             <p className="text-sm text-muted-foreground">
@@ -29,11 +29,7 @@ const Footer = () => {
                   Browse Vehicles
                 </a>
               </li>
-              <li>
-                <a href="#bikes" className="text-muted-foreground hover:text-primary transition-colors">
-                  Browse Bikes
-                </a>
-              </li>
+              
               <li>
                 <a href="#sell" className="text-muted-foreground hover:text-primary transition-colors">
                   Sell Your Car
@@ -68,7 +64,7 @@ const Footer = () => {
               </li>
               <li className="flex items-start gap-2 text-muted-foreground">
                 <Mail className="h-4 w-4 mt-0.5" />
-                <span>info@carautomart.com</span>
+                <span>info@carnationautomart.com</span>
               </li>
               <li className="flex items-start gap-2 text-muted-foreground">
                 <MapPin className="h-4 w-4 mt-0.5" />
@@ -79,7 +75,7 @@ const Footer = () => {
         </div>
 
         <div className="mt-12 pt-8 border-t border-border text-center text-sm text-muted-foreground">
-          <p>&copy; {new Date().getFullYear()} Car Automart Limited. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} CarNation Automart Limited. All rights reserved.</p>
         </div>
       </div>
     </footer>

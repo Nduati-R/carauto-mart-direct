@@ -28,14 +28,6 @@ const Hero = () => {
             Explore Vehicles
           </Button>
           <Button 
-            variant="outline" 
-            size="lg"
-            className="min-w-[200px] hover:bg-secondary transition-all duration-300"
-            onClick={() => document.getElementById('search')?.scrollIntoView({ behavior: 'smooth' })}
-          >
-            Buy a Bike
-          </Button>
-          <Button 
             variant="secondary" 
             size="lg"
             className="min-w-[200px] hover:bg-muted transition-all duration-300"
