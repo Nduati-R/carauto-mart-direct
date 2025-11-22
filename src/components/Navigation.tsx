@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ThemeToggle } from "@/components/ThemeToggle";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -32,6 +33,9 @@ const Navigation = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-6">
+            <a href="/vehicles" className="text-sm font-medium hover:text-primary transition-colors">
+              Vehicles
+            </a>
             <DropdownMenu>
               <DropdownMenuTrigger className="flex items-center space-x-1 text-sm font-medium hover:text-primary transition-colors">
                 <span>Vehicles</span>
@@ -49,34 +53,37 @@ const Navigation = () => {
             <a href="#sell" className="text-sm font-medium hover:text-primary transition-colors">
               Sell Your Car
             </a>
-            <a href="#about" className="text-sm font-medium hover:text-primary transition-colors">
+            <a href="/about" className="text-sm font-medium hover:text-primary transition-colors">
               About
             </a>
             <a href="#contact" className="text-sm font-medium hover:text-primary transition-colors">
               Contact
             </a>
+            <ThemeToggle />
           </div>
 
           {/* Mobile Menu Button */}
-          <button
-            className="md:hidden"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label="Toggle menu"
-          >
-            {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-          </button>
+          <div className="md:hidden flex items-center gap-2">
+            <ThemeToggle />
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label="Toggle menu"
+            >
+              {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            </button>
+          </div>
         </div>
 
         {/* Mobile Menu */}
         {mobileMenuOpen && (
           <div className="md:hidden py-4 space-y-3 border-t border-border">
-            <a href="#vehicles" className="block py-2 text-sm font-medium hover:text-primary transition-colors">
+            <a href="/vehicles" className="block py-2 text-sm font-medium hover:text-primary transition-colors">
               Vehicles
             </a>
             <a href="#sell" className="block py-2 text-sm font-medium hover:text-primary transition-colors">
               Sell Your Car
             </a>
-            <a href="#about" className="block py-2 text-sm font-medium hover:text-primary transition-colors">
+            <a href="/about" className="block py-2 text-sm font-medium hover:text-primary transition-colors">
               About
             </a>
             <a href="#contact" className="block py-2 text-sm font-medium hover:text-primary transition-colors">

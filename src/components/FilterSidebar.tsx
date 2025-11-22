@@ -9,10 +9,13 @@ interface FilterSidebarProps {
   setSearchQuery: (query: string) => void;
   selectedBrand: string;
   setSelectedBrand: (brand: string) => void;
+  selectedModel: string;
+  setSelectedModel: (model: string) => void;
   budgetRange: string;
   setBudgetRange: (range: string) => void;
   selectedBodyType: string;
   setSelectedBodyType: (type: string) => void;
+  vehicles: any[];
 }
 
 const FilterSidebar = ({
@@ -20,10 +23,13 @@ const FilterSidebar = ({
   setSearchQuery,
   selectedBrand,
   setSelectedBrand,
+  selectedModel,
+  setSelectedModel,
   budgetRange,
   setBudgetRange,
   selectedBodyType,
   setSelectedBodyType,
+  vehicles,
 }: FilterSidebarProps) => {
   
   const brands = [
@@ -39,6 +45,11 @@ const FilterSidebar = ({
   const budgetRanges = [
     "0-500K", "500K-1M", "1M-2M", "2M-3M", "3M-5M", "5M-10M", "Above 10M"
   ];
+
+  // Get unique models based on selected brand
+  const availableModels = selectedBrand
+    ? [...new Set(vehicles.filter(v => v.brand === selectedBrand).map(v => v.model))]
+    : [];
 
   return (
     <div className="space-y-4">
@@ -89,7 +100,10 @@ const FilterSidebar = ({
           <CardTitle>Brand & Model</CardTitle>
         </CardHeader>
         <CardContent className="space-y-3">
-          <Select value={selectedBrand} onValueChange={setSelectedBrand}>
+          <Select value={selectedBrand} onValueChange={(value) => {
+            setSelectedBrand(value === "all" ? "" : value);
+            setSelectedModel(""); // Reset model when brand changes
+          }}>
             <SelectTrigger>
               <SelectValue placeholder="Vehicle Brand" />
             </SelectTrigger>
@@ -103,7 +117,25 @@ const FilterSidebar = ({
             </SelectContent>
           </Select>
 
-          <Select value={selectedBodyType} onValueChange={setSelectedBodyType}>
+          <Select 
+            value={selectedModel} 
+            onValueChange={(value) => setSelectedModel(value === "all" ? "" : value)}
+            disabled={!selectedBrand}
+          >
+            <SelectTrigger>
+              <SelectValue placeholder="Vehicle Model" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="all">All Models</SelectItem>
+              {availableModels.map((model) => (
+                <SelectItem key={model} value={model}>
+                  {model}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+
+          <Select value={selectedBodyType} onValueChange={(value) => setSelectedBodyType(value === "all" ? "" : value)}>
             <SelectTrigger>
               <SelectValue placeholder="Body Type" />
             </SelectTrigger>
