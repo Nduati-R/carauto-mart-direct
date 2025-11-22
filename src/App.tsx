@@ -8,6 +8,7 @@ import ComparisonBar from "./components/ComparisonBar";
 import Index from "./pages/Index";
 import Vehicles from "./pages/Vehicles";
 import About from "./pages/About";
+import Contact from "./pages/Contact";
 import Compare from "./pages/Compare";
 import NotFound from "./pages/NotFound";
 
@@ -24,6 +25,7 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/vehicles" element={<Vehicles />} />
             <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
             <Route path="/compare" element={<Compare />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
