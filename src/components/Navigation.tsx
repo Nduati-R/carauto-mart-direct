@@ -25,7 +25,7 @@ const Navigation = () => {
               <div className="h-8 w-8 bg-primary rounded flex items-center justify-center">
                 <span className="text-primary-foreground font-bold text-lg">C</span>
               </div>
-              <h1 className="text-xl font-bold tracking-tight">
+              <h1 className="text-xl font-display font-bold tracking-tight">
                 CARNATION <span className="text-primary">AUTOMART</span>
               </h1>
             </div>
@@ -56,7 +56,7 @@ const Navigation = () => {
             <a href="/about" className="text-sm font-medium hover:text-primary transition-colors">
               About
             </a>
-            <a href="#contact" className="text-sm font-medium hover:text-primary transition-colors">
+            <a href="/contact" className="text-sm font-medium hover:text-primary transition-colors">
               Contact
             </a>
             <ThemeToggle />
@@ -86,7 +86,7 @@ const Navigation = () => {
             <a href="/about" className="block py-2 text-sm font-medium hover:text-primary transition-colors">
               About
             </a>
-            <a href="#contact" className="block py-2 text-sm font-medium hover:text-primary transition-colors">
+            <a href="/contact" className="block py-2 text-sm font-medium hover:text-primary transition-colors">
               Contact
             </a>
           </div>
