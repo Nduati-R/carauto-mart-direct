@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import {
   DropdownMenu,
@@ -11,9 +10,6 @@ import {
 
 const Navigation = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  const vehicleTypes = ["SUVs", "Sedans", "Trucks", "Vans", "Luxury Cars", "Sports Cars"];
-  const bikeTypes = ["Sport Bikes", "Cruisers", "Touring", "Off-Road"];
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
@@ -33,23 +29,40 @@ const Navigation = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-6">
-            <a href="/vehicles" className="text-sm font-medium hover:text-primary transition-colors">
-              Vehicles
-            </a>
+
+            {/* Vehicles Dropdown */}
             <DropdownMenu>
               <DropdownMenuTrigger className="flex items-center space-x-1 text-sm font-medium hover:text-primary transition-colors">
                 <span>Vehicles</span>
                 <ChevronDown className="h-4 w-4" />
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="w-48">
-                {vehicleTypes.map((type) => (
-                  <DropdownMenuItem key={type}>
-                    <a href="#" className="w-full">{type}</a>
-                  </DropdownMenuItem>
-                ))}
+
+              <DropdownMenuContent align="start" className="w-56 p-0 shadow-lg">
+                {/* Top Section - highlighted like screenshot */}
+                <DropdownMenuItem className="px-4 py-2 font-medium cursor-pointer bg-primary/10 hover:bg-primary/20">
+                  <a href="/vehicles" className="w-full text-sm text-foreground">
+                  All Vehicles
+                  </a>
+                </DropdownMenuItem>
+
+                <div className="border-b border-gray-700" />
+
+                {/* Lower items */}
+                <DropdownMenuItem className="px-4 py-2">
+                  <a href="/vehicles/kenya" className="w-full text-sm">
+                    Available in Kenya
+                  </a>
+                </DropdownMenuItem>
+
+                <DropdownMenuItem className="px-4 py-2">
+                  <a href="/vehicles/import" className="w-full text-sm">
+                    Direct Import / International Stock
+                  </a>
+                </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
 
+            {/* Other Nav Items */}
             <a href="#sell" className="text-sm font-medium hover:text-primary transition-colors">
               Sell Your Car
             </a>
@@ -59,6 +72,7 @@ const Navigation = () => {
             <a href="/contact" className="text-sm font-medium hover:text-primary transition-colors">
               Contact
             </a>
+
             <ThemeToggle />
           </div>
 

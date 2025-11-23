@@ -8,6 +8,10 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
+
+    /* --font-display: 'Poppins', sans-serif;
+    --font-body: 'Inter', sans-serif; */
+
     --background: 0 0% 100%;
     --foreground: 0 0% 10%;
 
