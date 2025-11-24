@@ -69,6 +69,9 @@ const Navigation = () => {
             <a href="/about" className="text-sm font-medium hover:text-primary transition-colors">
               About
             </a>
+            <a href="/blog" className="text-sm font-medium hover:text-primary transition-colors">
+              Blog
+            </a>
             <a href="/contact" className="text-sm font-medium hover:text-primary transition-colors">
               Contact
             </a>
@@ -99,6 +102,9 @@ const Navigation = () => {
             </a>
             <a href="/about" className="block py-2 text-sm font-medium hover:text-primary transition-colors">
               About
+            </a>
+            <a href="/blog" className="block py-2 text-sm font-medium hover:text-primary transition-colors">
+              Blog
             </a>
             <a href="/contact" className="block py-2 text-sm font-medium hover:text-primary transition-colors">
               Contact

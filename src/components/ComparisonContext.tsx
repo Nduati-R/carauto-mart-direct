@@ -1,4 +1,5 @@
 import { createContext, useContext, useState, ReactNode } from "react";
+import { toast } from "@/hooks/use-toast";
 
 interface Vehicle {
   id: number;
@@ -12,6 +13,7 @@ interface Vehicle {
   condition: string;
   bodyType: string;
   image: string;
+  images?: string[];
   description: string;
   availability: string;
   fuelType: string;
@@ -35,11 +37,24 @@ export const ComparisonProvider = ({ children }: { children: ReactNode }) => {
 
   const addToComparison = (vehicle: Vehicle) => {
     if (comparisonList.length >= 3) {
-      alert("You can only compare up to 3 vehicles");
+      toast({
+        title: "Comparison limit reached",
+        description: "You can only compare up to 3 vehicles at a time.",
+        variant: "destructive",
+      });
       return;
     }
     if (!comparisonList.find(v => v.id === vehicle.id)) {
       setComparisonList([...comparisonList, vehicle]);
+      toast({
+        title: "Vehicle added to comparison",
+        description: `${vehicle.name} has been added to your comparison list.`,
+      });
+    } else {
+      toast({
+        title: "Already in comparison",
+        description: "This vehicle is already in your comparison list.",
+      });
     }
   };
 
