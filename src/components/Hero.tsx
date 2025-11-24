@@ -30,9 +30,14 @@ const Hero = () => {
           <Button 
             variant="secondary" 
             size="lg"
-            className="min-w-[200px] hover:bg-muted transition-all duration-300"
-          >
+            className="min-w-[200px] hover:bg-muted transition-all duration-300">
+             <div>
+              <a href="/sell-your-car">
             Sell Your Car
+            </a>
+              </div> 
+            
+
           </Button>
         </div>
 

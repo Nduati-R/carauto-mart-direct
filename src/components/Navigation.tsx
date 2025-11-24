@@ -17,9 +17,10 @@ const Navigation = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <a href="/" className="flex items-center space-x-2">
+            
             <div className="flex items-center gap-2">
               <div className="h-8 w-8 bg-primary rounded flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-lg">C</span>
+                <img src="/images/logo.png" alt="CarNation Automart Logo" className="h-6 w-6" />
               </div>
               <h1 className="text-xl font-display font-bold tracking-tight">
                 CARNATION <span className="text-primary">AUTOMART</span>

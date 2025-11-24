@@ -9,7 +9,7 @@ const Footer = () => {
           <div className="space-y-4">
             <div className="flex items-center gap-2">
               <div className="h-8 w-8 bg-primary rounded flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-lg">C</span>
+                <img src="/images/logo.png" alt="CarNation Automart Logo" className="h-6 w-6" />
               </div>
               <h3 className="font-bold text-lg text-foreground">
                 CARNATION <span className="text-primary">AUTOMART</span>
@@ -30,7 +30,7 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href="#sell" className="text-muted-foreground hover:text-primary transition-colors">
+                <a href="/sell-your-car" className="text-muted-foreground hover:text-primary transition-colors">
                   Sell Your Car
                 </a>
               </li>
