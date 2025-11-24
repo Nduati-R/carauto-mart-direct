@@ -63,7 +63,7 @@ const Navigation = () => {
             </DropdownMenu>
 
             {/* Other Nav Items */}
-            <a href="#sell" className="text-sm font-medium hover:text-primary transition-colors">
+            <a href="/sell-your-car" className="text-sm font-medium hover:text-primary transition-colors">
               Sell Your Car
             </a>
             <a href="/about" className="text-sm font-medium hover:text-primary transition-colors">
@@ -97,7 +97,7 @@ const Navigation = () => {
             <a href="/vehicles" className="block py-2 text-sm font-medium hover:text-primary transition-colors">
               Vehicles
             </a>
-            <a href="#sell" className="block py-2 text-sm font-medium hover:text-primary transition-colors">
+            <a href="/sell-your-car" className="block py-2 text-sm font-medium hover:text-primary transition-colors">
               Sell Your Car
             </a>
             <a href="/about" className="block py-2 text-sm font-medium hover:text-primary transition-colors">

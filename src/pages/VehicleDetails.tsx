@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ArrowLeft, MessageCircle, MapPin, Heart, GitCompare } from "lucide-react";
+import { ArrowLeft, MessageCircle, Heart, GitCompare } from "lucide-react";
 import { useState } from "react";
 import {
   Carousel,
@@ -49,12 +49,6 @@ const VehicleDetails = () => {
     const message = `Hi, I'm interested in the ${vehicle.year} ${vehicle.name} listed at ${formatPrice(vehicle.price)}`;
     const phoneNumber = "254722000000"; // Replace with actual WhatsApp number
     window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, "_blank");
-  };
-
-  const handleDirectionsClick = () => {
-    // Car Automart Limited location
-    const location = "Car Automart Limited, Mombasa Road, Nairobi";
-    window.open(`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(location)}`, "_blank");
   };
 
   return (
@@ -208,23 +202,13 @@ const VehicleDetails = () => {
               </CardContent>
             </Card>
 
-            <div className="flex gap-4">
-              <Button 
-                className="flex-1 gap-2"
-                onClick={handleWhatsAppClick}
-              >
-                <MessageCircle className="h-5 w-5" />
-                Enquire via WhatsApp
-              </Button>
-              <Button 
-                variant="outline"
-                className="gap-2"
-                onClick={handleDirectionsClick}
-              >
-                <MapPin className="h-5 w-5" />
-                Get Directions
-              </Button>
-            </div>
+            <Button 
+              className="w-full gap-2"
+              onClick={handleWhatsAppClick}
+            >
+              <MessageCircle className="h-5 w-5" />
+              Enquire via WhatsApp
+            </Button>
           </div>
         </div>
 
