@@ -14,12 +14,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        'display': ['var(--font-display)'],
+        'display': ['Bebas Neue', 'sans-serif'],
         'body': ['Barlow', 'sans-serif'],
-
-      //   'display': ['var(--font-display)'],
-      //  'body': ['var(--font-body)'],
-
       },
       colors: {
         border: "hsl(var(--border))",
@@ -94,12 +90,23 @@ export default {
             height: "0",
           },
         },
+        "slide-in-bottom": {
+          "0%": {
+            transform: "translateY(100%)",
+            opacity: "0",
+          },
+          "100%": {
+            transform: "translateY(0)",
+            opacity: "1",
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "slide-in-bottom": "slide-in-bottom 0.3s ease-out",
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")],
 } satisfies Config;

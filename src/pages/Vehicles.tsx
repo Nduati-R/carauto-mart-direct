@@ -5,8 +5,8 @@ import VehicleCard from "@/components/VehicleCard";
 import FilterSidebar from "@/components/FilterSidebar";
 import { useSearchParams } from "react-router-dom";
 
-// Mock vehicle data
-const mockVehicles = [
+// Mock vehicle data - Exported for use in other components
+export const mockVehicles = [
   {
     id: 1,
     name: "Mazda Cx5 (Exclusive trim)",
@@ -19,6 +19,12 @@ const mockVehicles = [
     condition: "Foreign Used",
     bodyType: "SUV",
     image: "https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?w=800&q=80",
+    images: [
+      "https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?w=800&q=80",
+      "https://images.unsplash.com/photo-1617469767053-d3b523a0b982?w=800&q=80",
+      "https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=800&q=80",
+      "https://images.unsplash.com/photo-1621839673705-6617adf9e890?w=800&q=80"
+    ],
     description: "Step into luxury with this refined Mazda CX-5 that combines premium SUV elegance with advanced features.",
     availability: "Available",
     fuelType: "Diesel",
@@ -38,6 +44,12 @@ const mockVehicles = [
     condition: "Kenyan Used",
     bodyType: "Hatchback",
     image: "https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=800&q=80",
+    images: [
+      "https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=800&q=80",
+      "https://images.unsplash.com/photo-1621839673705-6617adf9e890?w=800&q=80",
+      "https://images.unsplash.com/photo-1617469767053-d3b523a0b982?w=800&q=80",
+      "https://images.unsplash.com/photo-1600712242805-5f78671b24da?w=800&q=80"
+    ],
     description: "Small hatch, big energy! This Auris brings it back with a 1.8L petrol engine for effortless cruising.",
     availability: "Available",
     fuelType: "Petrol",
@@ -57,6 +69,12 @@ const mockVehicles = [
     condition: "Kenyan Used",
     bodyType: "Sedan",
     image: "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=800&q=80",
+    images: [
+      "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=800&q=80",
+      "https://images.unsplash.com/photo-1600712242805-5f78671b24da?w=800&q=80",
+      "https://images.unsplash.com/photo-1617469767053-d3b523a0b982?w=800&q=80",
+      "https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=800&q=80"
+    ],
     description: "Step into class that combines prestige, comfort, and smooth V6 power with a sense of nostalgia.",
     availability: "Available",
     fuelType: "Petrol",
@@ -76,6 +94,12 @@ const mockVehicles = [
     condition: "Foreign Used",
     bodyType: "SUV",
     image: "https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=800&q=80",
+    images: [
+      "https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=800&q=80",
+      "https://images.unsplash.com/photo-1621839673705-6617adf9e890?w=800&q=80",
+      "https://images.unsplash.com/photo-1617469767053-d3b523a0b982?w=800&q=80",
+      "https://images.unsplash.com/photo-1600712242805-5f78671b24da?w=800&q=80"
+    ],
     description: "Reliable and spacious SUV perfect for families. Excellent fuel economy and comfortable ride.",
     availability: "Available",
     fuelType: "Petrol",
@@ -95,6 +119,12 @@ const mockVehicles = [
     condition: "Kenyan Used",
     bodyType: "SUV",
     image: "https://images.unsplash.com/photo-1607275249058-1c70f4d3d6c6?w=800&q=80",
+    images: [
+      "https://images.unsplash.com/photo-1607275249058-1c70f4d3d6c6?w=800&q=80",
+      "https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=800&q=80",
+      "https://images.unsplash.com/photo-1621839673705-6617adf9e890?w=800&q=80",
+      "https://images.unsplash.com/photo-1617469767053-d3b523a0b982?w=800&q=80"
+    ],
     description: "Versatile SUV with excellent off-road capability and modern safety features.",
     availability: "Available",
     fuelType: "Petrol",
@@ -114,6 +144,12 @@ const mockVehicles = [
     condition: "Foreign Used",
     bodyType: "Sedan",
     image: "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=800&q=80",
+    images: [
+      "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=800&q=80",
+      "https://images.unsplash.com/photo-1600712242805-5f78671b24da?w=800&q=80",
+      "https://images.unsplash.com/photo-1621839673705-6617adf9e890?w=800&q=80",
+      "https://images.unsplash.com/photo-1617469767053-d3b523a0b982?w=800&q=80"
+    ],
     description: "Luxury sedan with premium features and exceptional performance.",
     availability: "Available",
     fuelType: "Petrol",
@@ -133,6 +169,12 @@ const mockVehicles = [
     condition: "Foreign Used",
     bodyType: "SUV",
     image: "https://images.unsplash.com/photo-1555215695-3004980ad54e?w=800&q=80",
+    images: [
+      "https://images.unsplash.com/photo-1555215695-3004980ad54e?w=800&q=80",
+      "https://images.unsplash.com/photo-1621839673705-6617adf9e890?w=800&q=80",
+      "https://images.unsplash.com/photo-1617469767053-d3b523a0b982?w=800&q=80",
+      "https://images.unsplash.com/photo-1600712242805-5f78671b24da?w=800&q=80"
+    ],
     description: "Premium SUV with powerful engine and cutting-edge technology.",
     availability: "Available",
     fuelType: "Diesel",
@@ -152,6 +194,12 @@ const mockVehicles = [
     condition: "Kenyan Used",
     bodyType: "SUV",
     image: "https://images.unsplash.com/photo-1609521263047-f8f205293f24?w=800&q=80",
+    images: [
+      "https://images.unsplash.com/photo-1609521263047-f8f205293f24?w=800&q=80",
+      "https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=800&q=80",
+      "https://images.unsplash.com/photo-1621839673705-6617adf9e890?w=800&q=80",
+      "https://images.unsplash.com/photo-1617469767053-d3b523a0b982?w=800&q=80"
+    ],
     description: "Reliable all-wheel drive SUV perfect for all weather conditions.",
     availability: "Available",
     fuelType: "Petrol",

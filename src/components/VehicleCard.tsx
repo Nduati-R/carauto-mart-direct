@@ -1,9 +1,16 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Heart, GitCompare } from "lucide-react";
+import { Heart, GitCompare, Eye } from "lucide-react";
 import { useComparison } from "@/components/ComparisonContext";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 interface Vehicle {
   id: number;
@@ -17,6 +24,7 @@ interface Vehicle {
   condition: string;
   bodyType: string;
   image: string;
+  images?: string[];
   description: string;
   availability: string;
   fuelType: string;
@@ -32,6 +40,7 @@ interface VehicleCardProps {
 const VehicleCard = ({ vehicle }: VehicleCardProps) => {
   const { addToComparison, isInComparison } = useComparison();
   const [isFavorite, setIsFavorite] = useState(false);
+  const navigate = useNavigate();
   
   const formatPrice = (price: number) => {
     return `KES ${price.toLocaleString()}`;
@@ -49,19 +58,48 @@ const VehicleCard = ({ vehicle }: VehicleCardProps) => {
           {vehicle.availability}
         </Badge>
         <div className="absolute top-3 right-3 flex gap-2">
-          <button 
-            onClick={() => setIsFavorite(!isFavorite)}
-            className="p-2 bg-white/90 dark:bg-black/90 rounded-full hover:bg-white dark:hover:bg-black transition-colors"
-          >
-            <Heart className={`h-5 w-5 ${isFavorite ? 'fill-brand-red text-brand-red' : 'text-brand-red'}`} />
-          </button>
-          <button 
-            onClick={() => addToComparison(vehicle)}
-            className={`p-2 bg-white/90 dark:bg-black/90 rounded-full hover:bg-white dark:hover:bg-black transition-colors ${isInComparison(vehicle.id) ? 'ring-2 ring-primary' : ''}`}
-          >
-            <GitCompare className="h-5 w-5 text-primary" />
-          </button>
+          <TooltipProvider>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <button 
+                  onClick={() => setIsFavorite(!isFavorite)}
+                  className="p-2 bg-white/90 dark:bg-black/90 rounded-full hover:bg-white dark:hover:bg-black transition-colors"
+                >
+                  <Heart className={`h-5 w-5 ${isFavorite ? 'fill-brand-red text-brand-red' : 'text-brand-red'}`} />
+                </button>
+              </TooltipTrigger>
+              <TooltipContent>
+                <p>Add to favorites</p>
+              </TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
+          
+          <TooltipProvider>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <button 
+                  onClick={() => addToComparison(vehicle)}
+                  className={`p-2 bg-white/90 dark:bg-black/90 rounded-full hover:bg-white dark:hover:bg-black transition-colors ${isInComparison(vehicle.id) ? 'ring-2 ring-primary' : ''}`}
+                >
+                  <GitCompare className="h-5 w-5 text-primary" />
+                </button>
+              </TooltipTrigger>
+              <TooltipContent>
+                <p>Compare vehicle</p>
+              </TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
         </div>
+        
+        <button
+          onClick={() => navigate(`/vehicles/${vehicle.id}`)}
+          className="absolute inset-0 flex items-center justify-center bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity"
+        >
+          <div className="flex items-center gap-2 text-white">
+            <Eye className="h-6 w-6" />
+            <span className="font-semibold">View Details</span>
+          </div>
+        </button>
       </div>
       
       <CardContent className="p-5">
