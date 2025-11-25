@@ -47,7 +47,7 @@ const VehicleDetails = () => {
 
   const handleWhatsAppClick = () => {
     const message = `Hi, I'm interested in the ${vehicle.year} ${vehicle.name} listed at ${formatPrice(vehicle.price)}`;
-    const phoneNumber = "254722000000"; // Replace with actual WhatsApp number
+    const phoneNumber = "254740666444";
     window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, "_blank");
   };
 
