@@ -109,7 +109,7 @@ const Contact = () => {
                     <div>
                       <h3 className="font-display text-lg font-bold mb-1">WhatsApp</h3>
                       <a 
-                        href="https://wa.me/254740666444" 
+                        href="https://wa.me/254740666444?text=Hi,%20welcome%20to%20Carnation%20Automart%20Limited,%20how%20may%20I%20be%20of%20assistance?" 
                         target="_blank"
                         rel="noopener noreferrer"
                         className="font-body text-muted-foreground hover:text-primary transition-colors"
