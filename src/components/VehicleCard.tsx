@@ -85,7 +85,7 @@ const VehicleCard = ({ vehicle }: VehicleCardProps) => {
                 </button>
               </TooltipTrigger>
               <TooltipContent>
-                <p>Compare vehicle</p>
+                <p>Compare</p>
               </TooltipContent>
             </Tooltip>
           </TooltipProvider>
