@@ -14,7 +14,104 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      installment_payments: {
+        Row: {
+          amount: number
+          checkout_request_id: string | null
+          created_at: string
+          id: string
+          installment_plan_id: string
+          mpesa_receipt_number: string | null
+          mpesa_transaction_id: string | null
+          payment_date: string | null
+          phone_number: string
+          status: Database["public"]["Enums"]["payment_status"]
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          amount: number
+          checkout_request_id?: string | null
+          created_at?: string
+          id?: string
+          installment_plan_id: string
+          mpesa_receipt_number?: string | null
+          mpesa_transaction_id?: string | null
+          payment_date?: string | null
+          phone_number: string
+          status?: Database["public"]["Enums"]["payment_status"]
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          amount?: number
+          checkout_request_id?: string | null
+          created_at?: string
+          id?: string
+          installment_plan_id?: string
+          mpesa_receipt_number?: string | null
+          mpesa_transaction_id?: string | null
+          payment_date?: string | null
+          phone_number?: string
+          status?: Database["public"]["Enums"]["payment_status"]
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "installment_payments_installment_plan_id_fkey"
+            columns: ["installment_plan_id"]
+            isOneToOne: false
+            referencedRelation: "installment_plans"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      installment_plans: {
+        Row: {
+          created_at: string
+          down_payment: number
+          id: string
+          monthly_payment: number
+          number_of_months: number
+          remaining_amount: number
+          status: Database["public"]["Enums"]["installment_status"]
+          total_amount: number
+          updated_at: string
+          user_id: string
+          vehicle_id: string
+          vehicle_name: string
+        }
+        Insert: {
+          created_at?: string
+          down_payment: number
+          id?: string
+          monthly_payment: number
+          number_of_months: number
+          remaining_amount: number
+          status?: Database["public"]["Enums"]["installment_status"]
+          total_amount: number
+          updated_at?: string
+          user_id: string
+          vehicle_id: string
+          vehicle_name: string
+        }
+        Update: {
+          created_at?: string
+          down_payment?: number
+          id?: string
+          monthly_payment?: number
+          number_of_months?: number
+          remaining_amount?: number
+          status?: Database["public"]["Enums"]["installment_status"]
+          total_amount?: number
+          updated_at?: string
+          user_id?: string
+          vehicle_id?: string
+          vehicle_name?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
@@ -23,7 +120,8 @@ export type Database = {
       [_ in never]: never
     }
     Enums: {
-      [_ in never]: never
+      installment_status: "active" | "completed" | "defaulted" | "cancelled"
+      payment_status: "pending" | "completed" | "failed" | "cancelled"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -150,6 +248,9 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      installment_status: ["active", "completed", "defaulted", "cancelled"],
+      payment_status: ["pending", "completed", "failed", "cancelled"],
+    },
   },
 } as const
