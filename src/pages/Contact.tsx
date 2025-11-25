@@ -1,7 +1,8 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
-import { MapPin, Phone, Mail, Clock } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { MapPin, Phone, Mail, Clock, MessageCircle } from "lucide-react";
 
 const Contact = () => {
   const openingHours = [
@@ -94,6 +95,26 @@ const Contact = () => {
                         className="font-body text-muted-foreground hover:text-primary transition-colors"
                       >
                         info@carnationkenya.com
+                      </a>
+                    </div>
+                  </div>
+
+                  {/* WhatsApp */}
+                  <div className="flex gap-4">
+                    <div className="flex-shrink-0">
+                      <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center">
+                        <MessageCircle className="h-6 w-6 text-primary" />
+                      </div>
+                    </div>
+                    <div>
+                      <h3 className="font-display text-lg font-bold mb-1">WhatsApp</h3>
+                      <a 
+                        href="https://wa.me/254740666444" 
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="font-body text-muted-foreground hover:text-primary transition-colors"
+                      >
+                        +254 740 666 444
                       </a>
                     </div>
                   </div>
