@@ -17,6 +17,7 @@ import {
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import VehicleCard from "@/components/VehicleCard";
 import { useComparison } from "@/components/ComparisonContext";
+import { MpesaPaymentDialog } from "@/components/MpesaPaymentDialog";
 
 const VehicleDetails = () => {
   const { id } = useParams();
@@ -202,13 +203,21 @@ const VehicleDetails = () => {
               </CardContent>
             </Card>
 
-            <Button 
-              className="w-full gap-2"
-              onClick={handleWhatsAppClick}
-            >
-              <MessageCircle className="h-5 w-5" />
-              Enquire via WhatsApp
-            </Button>
+            <div className="space-y-3">
+              <MpesaPaymentDialog
+                vehicleId={vehicle.id}
+                vehicleName={vehicle.name}
+                vehiclePrice={vehicle.price}
+              />
+              <Button 
+                className="w-full gap-2"
+                variant="outline"
+                onClick={handleWhatsAppClick}
+              >
+                <MessageCircle className="h-5 w-5" />
+                Enquire via WhatsApp
+              </Button>
+            </div>
           </div>
         </div>
 
