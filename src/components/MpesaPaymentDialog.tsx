@@ -41,6 +41,8 @@ export const MpesaPaymentDialog = ({
   const [loading, setLoading] = useState(false);
   const { toast } = useToast();
 
+  const minDownPayment = vehiclePrice * 0.5;
+
   const calculateMonthlyPayment = () => {
     const down = parseFloat(downPayment) || 0;
     const remaining = vehiclePrice - down;
@@ -48,12 +50,27 @@ export const MpesaPaymentDialog = ({
     return remaining / monthsNum;
   };
 
+  const calculateMonthlyPercentage = () => {
+    const monthly = calculateMonthlyPayment();
+    return (monthly / vehiclePrice) * 100;
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    const down = parseFloat(downPayment);
+    if (down < minDownPayment) {
+      toast({
+        title: "Invalid down payment",
+        description: `Down payment must be at least 50% (KES ${minDownPayment.toLocaleString()})`,
+        variant: "destructive",
+      });
+      return;
+    }
+
     setLoading(true);
 
     try {
-      const down = parseFloat(downPayment);
       const monthsNum = parseInt(months);
       const remaining = vehiclePrice - down;
       const monthly = remaining / monthsNum;
@@ -147,17 +164,24 @@ export const MpesaPaymentDialog = ({
         <form onSubmit={handleSubmit}>
           <div className="grid gap-4 py-4">
             <div className="grid gap-2">
-              <Label htmlFor="downPayment">Down Payment (KES)</Label>
+              <Label htmlFor="downPayment">
+                Down Payment (Minimum 50% - KES {minDownPayment.toLocaleString()})
+              </Label>
               <Input
                 id="downPayment"
                 type="number"
                 placeholder="Enter down payment"
                 value={downPayment}
                 onChange={(e) => setDownPayment(e.target.value)}
-                min="0"
+                min={minDownPayment}
                 max={vehiclePrice}
                 required
               />
+              {downPayment && parseFloat(downPayment) < minDownPayment && (
+                <p className="text-sm text-destructive">
+                  Down payment must be at least 50% (KES {minDownPayment.toLocaleString()})
+                </p>
+              )}
             </div>
 
             <div className="grid gap-2">
@@ -198,7 +222,9 @@ export const MpesaPaymentDialog = ({
                     </div>
                     <div className="flex justify-between">
                       <span className="text-muted-foreground">Down Payment:</span>
-                      <span className="font-semibold">KES {downPaymentNum.toLocaleString()}</span>
+                      <span className="font-semibold">
+                        KES {downPaymentNum.toLocaleString()} ({((downPaymentNum / vehiclePrice) * 100).toFixed(1)}%)
+                      </span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-muted-foreground">Remaining:</span>
@@ -210,7 +236,7 @@ export const MpesaPaymentDialog = ({
                       <div className="flex justify-between">
                         <span className="text-muted-foreground">Monthly Payment:</span>
                         <span className="font-bold text-primary">
-                          KES {monthlyPayment.toLocaleString(undefined, { maximumFractionDigits: 0 })}
+                          KES {monthlyPayment.toLocaleString(undefined, { maximumFractionDigits: 0 })} ({calculateMonthlyPercentage().toFixed(1)}% of total)
                         </span>
                       </div>
                     </div>
